@@ -1,14 +1,41 @@
 module.exports = {
   siteMetadata: {
-    title: `Gatsby Starter Blog`,
-    author: `Kyle Mathews`,
-    description: `A starter blog demonstrating what Gatsby can do.`,
-    siteUrl: `https://gatsby-starter-blog-demo.netlify.com/`,
+    title: `Blog`,
+    author: `Alex Garcia`,
+    description: `A blog of .`,
+    siteUrl: `https://iamprettydamn.cool/blogx`,
     social: {
-      twitter: `kylemathews`,
+      twitter: `asg_027`,
     },
   },
   plugins: [
+    {
+      resolve: `gatsby-mdx`,
+      options: {
+        extensions: [".mdx", ".md"],
+        gatsbyRemarkPlugins: [
+          {
+            resolve: `gatsby-remark-images`,
+            options: {
+              maxWidth: 590,
+            },
+          },
+          {
+            resolve: `gatsby-remark-responsive-iframe`,
+            options: {
+              wrapperStyle: `margin-bottom: 1.0725rem`,
+            },
+          },
+          {
+            resolve: `gatsby-remark-copy-linked-files`,
+          },
+
+          {
+            resolve: `gatsby-remark-smartypants`,
+          },
+        ],
+      },
+    },
     {
       resolve: `gatsby-source-filesystem`,
       options: {
@@ -23,6 +50,7 @@ module.exports = {
         name: `assets`,
       },
     },
+
     {
       resolve: `gatsby-transformer-remark`,
       options: {

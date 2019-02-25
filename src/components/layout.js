@@ -58,6 +58,7 @@ class Layout extends React.Component {
           marginRight: `auto`,
           maxWidth: rhythm(24),
           padding: `${rhythm(1.5)} ${rhythm(3 / 4)}`,
+          minHeight: `100vh`,
         }}
       >
         <header>{header}</header>
@@ -65,7 +66,7 @@ class Layout extends React.Component {
         <footer>
           © {new Date().getFullYear()}, Built with
           {` `}
-          <a href="https://www.gatsbyjs.org">Gatsby</a>
+          <a href="https://www.gatsbyjs.org">Gatsby</a>, Hosted on GitHub Pages
         </footer>
       </div>
     )

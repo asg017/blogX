@@ -5,13 +5,15 @@ import Bio from "../components/bio"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 import { rhythm, scale } from "../utils/typography"
+import MDXRenderer from "gatsby-mdx/mdx-renderer"
+import { MDXProvider } from "@mdx-js/tag"
 
 class BlogPostTemplate extends React.Component {
   render() {
-    const post = this.props.data.markdownRemark
+    const post = this.props.data.mdx
     const siteTitle = this.props.data.site.siteMetadata.title
     const { previous, next } = this.props.pageContext
-
+    console.log(this.props)
     return (
       <Layout location={this.props.location} title={siteTitle}>
         <SEO
@@ -29,7 +31,19 @@ class BlogPostTemplate extends React.Component {
         >
           {post.frontmatter.date}
         </p>
-        <div dangerouslySetInnerHTML={{ __html: post.html }} />
+        <MDXProvider
+          components={{
+            h1: ({ children, ...props }) => (
+              <h1 {...props}>Provided: {children}</h1>
+            ),
+            wrapper: "article",
+          }}
+        >
+          <div>{this.props.children}</div>
+          <MDXRenderer {...this.props}>
+            {this.props.data.mdx.code.body}
+          </MDXRenderer>
+        </MDXProvider>
         <hr
           style={{
             marginBottom: rhythm(1),
@@ -76,10 +90,12 @@ export const pageQuery = graphql`
         author
       }
     }
-    markdownRemark(fields: { slug: { eq: $slug } }) {
+    mdx(fields: { slug: { eq: $slug } }) {
       id
       excerpt(pruneLength: 160)
-      html
+      code {
+        body
+      }
       frontmatter {
         title
         date(formatString: "MMMM DD, YYYY")

@@ -62,11 +62,12 @@ class Layout extends React.Component {
         }}
       >
         <header>{header}</header>
-        <main>{children}</main>
+        <main style={{ minHeight: "60vh" }}>{children}</main>
         <footer>
           © {new Date().getFullYear()}, Built with
           {` `}
-          <a href="https://www.gatsbyjs.org">Gatsby</a>, Hosted on GitHub Pages
+          <a href="https://www.gatsbyjs.org">Gatsby</a>, Hosted on{" "}
+          <a href="https://www.github.com/asg017/blogX">GitHub</a>
         </footer>
       </div>
     )

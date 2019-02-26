@@ -1,0 +1,9 @@
+.Glitter {
+  color: white;
+  background: -webkit-linear-gradient(transparent, transparent),
+    url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/191814/blue_glitter.gif)
+      repeat 100px 20px;
+  letter-spacing: 1px;
+  text-decoration: none;
+  filter: hue-rotate(50deg);
+}

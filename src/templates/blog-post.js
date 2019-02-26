@@ -7,6 +7,12 @@ import SEO from "../components/seo"
 import { rhythm, scale } from "../utils/typography"
 import MDXRenderer from "gatsby-mdx/mdx-renderer"
 import { MDXProvider } from "@mdx-js/tag"
+import { timeFormat } from "d3-time-format"
+
+const formatPostDate = d => {
+  const date = new Date(d)
+  return timeFormat("%A, %B %e, %Y")(date)
+}
 
 class BlogPostTemplate extends React.Component {
   render() {
@@ -29,13 +35,11 @@ class BlogPostTemplate extends React.Component {
             marginTop: rhythm(-1),
           }}
         >
-          {post.frontmatter.date}
+          {formatPostDate(post.frontmatter.date)}
         </p>
         <MDXProvider
           components={{
-            h1: ({ children, ...props }) => (
-              <h1 {...props}>Provided: {children}</h1>
-            ),
+            h1: ({ children, ...props }) => <h1 {...props}>{children}</h1>,
             wrapper: "article",
           }}
         >
@@ -98,8 +102,7 @@ export const pageQuery = graphql`
       }
       frontmatter {
         title
-        date(formatString: "MMMM DD, YYYY")
-        description
+        date
       }
     }
   }

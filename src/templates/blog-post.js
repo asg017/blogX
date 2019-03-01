@@ -1,9 +1,9 @@
 import React from "react"
 import { Link, graphql } from "gatsby"
 
-import Bio from "../components/bio"
-import Layout from "../components/layout"
-import SEO from "../components/seo"
+import Bio from "../components/Bio"
+import Layout from "../components/Layout"
+import SEO from "../components/Seo"
 import { rhythm, scale } from "../utils/typography"
 import MDXRenderer from "gatsby-mdx/mdx-renderer"
 import { MDXProvider } from "@mdx-js/tag"
@@ -21,7 +21,7 @@ class BlogPostTemplate extends React.Component {
     const { previous, next } = this.props.pageContext
     console.log(this.props)
     return (
-      <Layout location={this.props.location} title={''}>
+      <Layout location={this.props.location} title={""}>
         <SEO
           title={post.frontmatter.title}
           description={post.frontmatter.description || post.excerpt}

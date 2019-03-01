@@ -1,43 +1,20 @@
 import React from "react"
 import { Link } from "gatsby"
 import { Helmet } from "react-helmet"
+import Toggle from "./Toggle"
+
 import { rhythm, scale } from "../utils/typography"
 
-const Head = () => (
-  <Helmet>
-    <script
-      dangerouslySetInnerHTML={{
-        __html: `
-              (function() {
-                window.__onThemeChange = function() {};
-                function setTheme(newTheme) {
-                  window.__theme = newTheme;
-                  preferredTheme = newTheme;
-                  document.body.className = newTheme;
-                  window.__onThemeChange(newTheme);
-                }
-                var preferredTheme;
-                try {
-                  preferredTheme = localStorage.getItem('theme');
-                } catch (err) { }
-                window.__setPreferredTheme = function(newTheme) {
-                  setTheme(newTheme);
-                  try {
-                    localStorage.setItem('theme', newTheme);
-                  } catch (err) {}
-                }
-                var darkQuery = window.matchMedia('(prefers-color-scheme: dark)');
-                darkQuery.addListener(function(e) {
-                  window.__setPreferredTheme(e.matches ? 'dark' : 'light')
-                });
-                setTheme(preferredTheme || (darkQuery.matches ? 'dark' : 'light'));
-              })();
-            `,
-      }}
-    />
-  </Helmet>
-)
 class Layout extends React.Component {
+  state = {
+    theme: null,
+  }
+  componentDidMount() {
+    this.setState({ theme: window.__theme })
+    window.__onThemeChange = () => {
+      this.setState({ theme: window.__theme })
+    }
+  }
   render() {
     const { location, title, children } = this.props
     const rootPath = `${__PATH_PREFIX__}/`
@@ -95,8 +72,38 @@ class Layout extends React.Component {
           minHeight: `100vh`,
         }}
       >
-        <Head />
         <header>{header}</header>
+        <Toggle
+          icons={{
+            checked: (
+              <img
+                src="https://raw.githubusercontent.com/gaearon/overreacted.io/master/src/assets/moon.png"
+                width="16"
+                height="16"
+                role="presentation"
+                style={{ pointerEvents: "none" }}
+              />
+            ),
+            unchecked: (
+              <img
+                src="https://raw.githubusercontent.com/gaearon/overreacted.io/master/src/assets/sun.png"
+                width="16"
+                height="16"
+                role="presentation"
+                style={{ pointerEvents: "none" }}
+              />
+            ),
+          }}
+          checked={this.state.theme === "dark"}
+          onChange={e => {
+            console.log(
+              `toggle changed, setting to ${
+                e.target.checked ? "dark" : "light"
+              }`
+            )
+            window.__setPreferredTheme(e.target.checked ? "dark" : "light")
+          }}
+        />
         <main style={{ minHeight: "60vh" }}>{children}</main>
         <footer>
           © {new Date().getFullYear()}, Built with

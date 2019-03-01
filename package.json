@@ -1,11 +1,11 @@
 {
-  "name": "gatsby-starter-blog",
+  "name": "alex-garcia-blog",
   "private": true,
-  "description": "A starter for a blog powered by Gatsby and Markdown",
+  "description": "A blog to talk about stuff",
   "version": "0.1.0",
-  "author": "Kyle Mathews <mathews.kyle@gmail.com>",
+  "author": "Alex Garcia <alexsebastian.garcia@gmail.com>",
   "bugs": {
-    "url": "https://github.com/gatsbyjs/gatsby/issues"
+    "url": "https://github.com/asg017/blogX/issues"
   },
   "dependencies": {
     "@mdx-js/mdx": "^0.17.5",
@@ -44,7 +44,7 @@
   "devDependencies": {
     "prettier": "^1.16.4"
   },
-  "homepage": "https://github.com/gatsbyjs/gatsby-starter-blog#readme",
+  "homepage": "https://github.com/asg017/blogX",
   "keywords": [
     "gatsby"
   ],
@@ -52,10 +52,11 @@
   "main": "n/a",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/gatsbyjs/gatsby-starter-blog.git"
+    "url": "git+https://github.com/asg017/blogX.git"
   },
   "scripts": {
     "build": "gatsby build",
+    "dev": "npm run develop",
     "develop": "gatsby develop",
     "format": "prettier --write src/**/*.{js,jsx}",
     "start": "npm run develop",

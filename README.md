@@ -10,7 +10,7 @@ To play with, do:
 git clone https://github.com/asg017/blogX.git
 cd blogX/
 yarn
-yarn develop
+yarn dev
 ```
 
 Then http://localhost:8000 to see the posts, http://localhost:8000___graphql to play with the data.

@@ -6,7 +6,7 @@ class Notebook extends React.Component {
   rootRef = React.createRef()
 
   componentDidMount() {
-    const main = Runtime.load(notebook, Inspector.into(this.rootRef.current))
+    Runtime.load(notebook, Inspector.into(this.rootRef.current))
   }
 
   render() {

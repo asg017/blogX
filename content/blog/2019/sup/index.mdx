@@ -1,0 +1,39 @@
+---
+title: Sup
+date: "2019-03-01T08:27:58.908Z"
+---
+
+import SubPage from "./subpage.mdx"
+import { Glitter } from "./components/Glitter.js"
+
+Hello! This is the (first?) post for my new blog. Like everything I do, I spent
+waaaay to much time setting this site up for little added benefit, so the least
+I can do it have my first post talk about the technical pieces behind this blog.
+
+This is a Gatsby site, generated with the [gatsby-starter-blog](https://github.com/gatsbyjs/gatsby-starter-blog)
+recipe. Which is cool, I could just write a simple markdown file and be good to go!
+
+But, markdown files by themselves are boring. The [internet isn't fun and weird
+anymore](https://jarredsumner.com/codeblog/), so I added the [gatsby-mdx](https://github.com/ChristopherBiscardi/gatsby-mdx)
+plugin to allow for <Glitter>inline use of whatever</Glitter> React components
+that I want. File structure for each post is pretty simple, too - here's the
+folder for this post:
+
+```
+content/blog/2019/sup/
+├── components
+│   ├── Glitter.js
+│   └── Glitter.css
+├── index.mdx
+└── test_a.mdx
+```
+
+<SubPage />
+
+🤠 pretty cool yo
+
+A lot of the design choices/code comes from Dan Abramov's [overreacted.io blog](https://github.com/gaearon/overreacted.io).
+
+Basically, this should blog should be easier and more fun than making a blog
+post with [Observable notebooks](https://observablehq.com/), but not as cool as
+[codeblog.com](http://codeblog.com/) (whenever that is released).

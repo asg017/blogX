@@ -21,6 +21,9 @@ body.light {
 .dark a {
   color: var(--blue);
 }
+.dark a.special {
+  color: var(--orange);
+}
 .light a {
   color: var(--darkBlue);
 }

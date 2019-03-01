@@ -1,7 +1,7 @@
 import React from "react"
 import { Link } from "gatsby"
 import Toggle from "./Toggle"
-
+import Footer from "./Footer"
 import { rhythm, scale } from "../utils/typography"
 
 class Layout extends React.Component {
@@ -18,15 +18,7 @@ class Layout extends React.Component {
     return (
       <div style={{ display: "grid", gridTemplateColumns: "auto auto" }}>
         <div>
-          <a
-            href="/"
-            style={{
-              color:
-                this.state.theme === "light"
-                  ? "var(--darkBlue)"
-                  : "var(--orange)",
-            }}
-          >
+          <a href="/" className="special">
             iamprettydamn.cool blog
           </a>
         </div>
@@ -127,10 +119,7 @@ class Layout extends React.Component {
         <header>{header}</header>
         <main style={{ minHeight: "60vh" }}>{children}</main>
         <footer>
-          © {new Date().getFullYear()}, Built with
-          {` `}
-          <a href="https://www.gatsbyjs.org">Gatsby</a>, Hosted on{" "}
-          <a href="https://www.github.com/asg017/blogX">GitHub</a>
+          <Footer />
         </footer>
       </div>
     )

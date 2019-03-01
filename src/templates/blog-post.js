@@ -27,7 +27,9 @@ class BlogPostTemplate extends React.Component {
           description={post.frontmatter.description || post.excerpt}
         />
         <h1 style={{ marginTop: rhythm(1) }}>{post.frontmatter.title}</h1>
-        <a href="https://iamprettydamn.cool">{author}</a>
+        <a href="https://iamprettydamn.cool" className="special">
+          {author}
+        </a>
         <div
           style={{
             ...scale(-1 / 5),
@@ -50,6 +52,7 @@ class BlogPostTemplate extends React.Component {
         </MDXProvider>
         <hr
           style={{
+            marginTop: rhythm(1.5),
             marginBottom: rhythm(1),
           }}
         />

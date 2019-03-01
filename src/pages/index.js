@@ -2,6 +2,7 @@ import React from "react"
 import { Link, graphql } from "gatsby"
 
 import Layout from "../components/Layout"
+import Bio from "../components/Bio"
 import SEO from "../components/Seo"
 import { timeFormat } from "d3-time-format"
 import styles from "./BlogIndex.module.css"
@@ -32,9 +33,7 @@ const PostsList = ({ posts }) => (
 class BlogIndex extends React.Component {
   render() {
     const { data } = this.props
-    console.log(this.props)
     const posts = data.allMdx.edges
-    console.log(posts)
     return (
       <Layout location={this.props.location} title={""}>
         <SEO title="Blog" keywords={[`alex garcia`, `blog`, `tech`]} />

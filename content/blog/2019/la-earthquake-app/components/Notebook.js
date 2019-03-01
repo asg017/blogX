@@ -10,10 +10,8 @@ class Notebook extends React.Component {
   }
 
   render() {
-    console.log(this.rootRef)
     return (
       <div>
-        this is nb
         <div ref={this.rootRef} />
       </div>
     )

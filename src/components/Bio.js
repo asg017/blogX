@@ -33,7 +33,12 @@ function Bio() {
             <p style={{ margin: "auto 0" }}>
               <strong>{author}</strong>
               {` `}
-              <a href={`https://twitter.com/${social.twitter}`}>twitter</a>
+              <a
+                href={`https://twitter.com/${social.twitter}`}
+                className="special"
+              >
+                twitter
+              </a>
             </p>
           </div>
         )

@@ -1,10 +1,8 @@
 import React from "react"
 import { Link, graphql } from "gatsby"
 
-import Bio from "../components/Bio"
 import Layout from "../components/Layout"
 import SEO from "../components/Seo"
-import { rhythm } from "../utils/typography"
 import { timeFormat } from "d3-time-format"
 import styles from "./BlogIndex.module.css"
 
@@ -35,7 +33,6 @@ class BlogIndex extends React.Component {
   render() {
     const { data } = this.props
     console.log(this.props)
-    const siteTitle = data.site.siteMetadata.title
     const posts = data.allMdx.edges
     console.log(posts)
     return (

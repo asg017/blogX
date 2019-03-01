@@ -30,7 +30,7 @@ function Bio() {
                 borderRadius: `50%`,
               }}
             />
-            <p>
+            <p style={{ margin: "auto 0" }}>
               <strong>{author}</strong>
               {` `}
               <a href={`https://twitter.com/${social.twitter}`}>twitter</a>

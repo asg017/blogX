@@ -1,6 +1,5 @@
 import React from "react"
 import { Link } from "gatsby"
-import { Helmet } from "react-helmet"
 import Toggle from "./Toggle"
 
 import { rhythm, scale } from "../utils/typography"
@@ -14,6 +13,58 @@ class Layout extends React.Component {
     window.__onThemeChange = () => {
       this.setState({ theme: window.__theme })
     }
+  }
+  renderTopMenu() {
+    return (
+      <div style={{ display: "grid", gridTemplateColumns: "auto auto" }}>
+        <div>
+          <a
+            href="/"
+            style={{
+              color:
+                this.state.theme === "light"
+                  ? "var(--darkBlue)"
+                  : "var(--orange)",
+            }}
+          >
+            iamprettydamn.cool blog
+          </a>
+        </div>
+        <div>
+          <Toggle
+            icons={{
+              checked: (
+                <img
+                  src="https://raw.githubusercontent.com/gaearon/overreacted.io/master/src/assets/moon.png"
+                  width="16"
+                  height="16"
+                  alt="moon"
+                  style={{ pointerEvents: "none" }}
+                />
+              ),
+              unchecked: (
+                <img
+                  src="https://raw.githubusercontent.com/gaearon/overreacted.io/master/src/assets/sun.png"
+                  width="16"
+                  height="16"
+                  alt="sun"
+                  style={{ pointerEvents: "none" }}
+                />
+              ),
+            }}
+            checked={this.state.theme === "dark"}
+            onChange={e => {
+              console.log(
+                `toggle changed, setting to ${
+                  e.target.checked ? "dark" : "light"
+                }`
+              )
+              window.__setPreferredTheme(e.target.checked ? "dark" : "light")
+            }}
+          />
+        </div>
+      </div>
+    )
   }
   render() {
     const { location, title, children } = this.props
@@ -72,51 +123,8 @@ class Layout extends React.Component {
           minHeight: `100vh`,
         }}
       >
-        <div>
-          <a
-            href="/"
-            style={{
-              color:
-                this.state.theme === "light"
-                  ? "var(--darkBlue)"
-                  : "var(--orange)",
-            }}
-          >
-            iamprettydamn.cool blog
-          </a>
-        </div>
+        {this.renderTopMenu()}
         <header>{header}</header>
-        <Toggle
-          icons={{
-            checked: (
-              <img
-                src="https://raw.githubusercontent.com/gaearon/overreacted.io/master/src/assets/moon.png"
-                width="16"
-                height="16"
-                role="presentation"
-                style={{ pointerEvents: "none" }}
-              />
-            ),
-            unchecked: (
-              <img
-                src="https://raw.githubusercontent.com/gaearon/overreacted.io/master/src/assets/sun.png"
-                width="16"
-                height="16"
-                role="presentation"
-                style={{ pointerEvents: "none" }}
-              />
-            ),
-          }}
-          checked={this.state.theme === "dark"}
-          onChange={e => {
-            console.log(
-              `toggle changed, setting to ${
-                e.target.checked ? "dark" : "light"
-              }`
-            )
-            window.__setPreferredTheme(e.target.checked ? "dark" : "light")
-          }}
-        />
         <main style={{ minHeight: "60vh" }}>{children}</main>
         <footer>
           © {new Date().getFullYear()}, Built with

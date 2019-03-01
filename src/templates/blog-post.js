@@ -17,7 +17,7 @@ const formatPostDate = d => {
 class BlogPostTemplate extends React.Component {
   render() {
     const post = this.props.data.mdx
-    const siteTitle = this.props.data.site.siteMetadata.title
+    const author = this.props.data.site.siteMetadata.author
     const { previous, next } = this.props.pageContext
     console.log(this.props)
     return (
@@ -26,17 +26,17 @@ class BlogPostTemplate extends React.Component {
           title={post.frontmatter.title}
           description={post.frontmatter.description || post.excerpt}
         />
-        <h1>{post.frontmatter.title}</h1>
-        <p
+        <h1 style={{ marginTop: rhythm(1) }}>{post.frontmatter.title}</h1>
+        <a href="https://iamprettydamn.cool">{author}</a>
+        <div
           style={{
             ...scale(-1 / 5),
-            display: `block`,
             marginBottom: rhythm(1),
             //marginTop: rhythm(-1),
           }}
         >
-          {formatPostDate(post.frontmatter.date)}
-        </p>
+          <p>{formatPostDate(post.frontmatter.date)}</p>
+        </div>
         <MDXProvider
           components={{
             h1: ({ children, ...props }) => <h1 {...props}>{children}</h1>,
@@ -55,16 +55,8 @@ class BlogPostTemplate extends React.Component {
         />
         <Bio />
 
-        <ul
-          style={{
-            display: `flex`,
-            flexWrap: `wrap`,
-            justifyContent: `space-between`,
-            listStyle: `none`,
-            padding: 0,
-          }}
-        >
-          {previous && (
+        <ul style={{ listStyle: `none` }}>
+          {previous && previous.frontmatter && previous.frontmatter.title && (
             <li>
               Previous:{" "}
               <Link to={previous.fields.slug} rel="prev">
@@ -73,7 +65,7 @@ class BlogPostTemplate extends React.Component {
             </li>
           )}
 
-          {next && (
+          {next && next.frontmatter && next.frontmatter.title && (
             <li>
               Next:{" "}
               <Link to={next.fields.slug} rel="next">

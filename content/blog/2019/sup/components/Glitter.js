@@ -1,8 +1,8 @@
 import React from "react"
-import styles from "./Glitter.module.css"
+import "./Glitter.css"
 
 export class Glitter extends React.Component {
   render() {
-    return <span className={styles.Glitter}>{this.props.children}</span>
+    return <span className="Glitter">{this.props.children}</span>
   }
 }

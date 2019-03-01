@@ -1,0 +1,1 @@
+{"version":3,"sources":["webpack:///./src/pages/BlogIndex.module.css"],"names":["module","exports","postList"],"mappings":"+IACAA,EAAAC,QAAA,CAAkBC,SAAA","file":"styles-36031b8995cb86c65e93.js","sourcesContent":["// extracted by mini-css-extract-plugin\nmodule.exports = {\"postList\":\"BlogIndex-module--postList--1s2F1\"};"],"sourceRoot":""}

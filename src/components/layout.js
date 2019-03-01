@@ -1,8 +1,40 @@
 import React from "react"
 import { Link } from "gatsby"
-
+import {Helmet} from "react-helmet"
 import { rhythm, scale } from "../utils/typography"
 
+const Head = () => (<Helmet>
+  <script
+            dangerouslySetInnerHTML={{
+              __html: `
+              (function() {
+                window.__onThemeChange = function() {};
+                function setTheme(newTheme) {
+                  window.__theme = newTheme;
+                  preferredTheme = newTheme;
+                  document.body.className = newTheme;
+                  window.__onThemeChange(newTheme);
+                }
+                var preferredTheme;
+                try {
+                  preferredTheme = localStorage.getItem('theme');
+                } catch (err) { }
+                window.__setPreferredTheme = function(newTheme) {
+                  setTheme(newTheme);
+                  try {
+                    localStorage.setItem('theme', newTheme);
+                  } catch (err) {}
+                }
+                var darkQuery = window.matchMedia('(prefers-color-scheme: dark)');
+                darkQuery.addListener(function(e) {
+                  window.__setPreferredTheme(e.matches ? 'dark' : 'light')
+                });
+                setTheme(preferredTheme || (darkQuery.matches ? 'dark' : 'light'));
+              })();
+            `,
+            }}
+          />
+</Helmet>);
 class Layout extends React.Component {
   render() {
     const { location, title, children } = this.props
@@ -61,6 +93,7 @@ class Layout extends React.Component {
           minHeight: `100vh`,
         }}
       >
+      <Head/>
         <header>{header}</header>
         <main style={{ minHeight: "60vh" }}>{children}</main>
         <footer>

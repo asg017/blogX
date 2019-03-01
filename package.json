@@ -30,7 +30,7 @@
     "gatsby-source-filesystem": "^2.0.22",
     "gatsby-transformer-remark": "^2.2.6",
     "gatsby-transformer-sharp": "^2.1.14",
-    "la-earthquake-app": "https://api.observablehq.com/@asg017/la-earthquake-app.tgz",
+    "la-earthquake-app": "https://api.observablehq.com/@asg017/la-earthquake-app@640.tgz",
     "prismjs": "^1.15.0",
     "react": "^16.8.3",
     "react-dom": "^16.8.3",

@@ -21,7 +21,7 @@ class BlogPostTemplate extends React.Component {
     const { previous, next } = this.props.pageContext
     console.log(this.props)
     return (
-      <Layout location={this.props.location} title={siteTitle}>
+      <Layout location={this.props.location} title={''}>
         <SEO
           title={post.frontmatter.title}
           description={post.frontmatter.description || post.excerpt}
@@ -32,7 +32,7 @@ class BlogPostTemplate extends React.Component {
             ...scale(-1 / 5),
             display: `block`,
             marginBottom: rhythm(1),
-            marginTop: rhythm(-1),
+            //marginTop: rhythm(-1),
           }}
         >
           {formatPostDate(post.frontmatter.date)}

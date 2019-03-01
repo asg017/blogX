@@ -2,7 +2,6 @@ import React from "react"
 import { Link, graphql } from "gatsby"
 
 import Layout from "../components/Layout"
-import Bio from "../components/Bio"
 import SEO from "../components/Seo"
 import { timeFormat } from "d3-time-format"
 import styles from "./BlogIndex.module.css"
@@ -32,7 +31,10 @@ const PostsList = ({ posts }) => (
 
 const Hi = () => (
   <div style={{ marginTop: "15px", marginBottom: "20px", ...scale(-1 / 8) }}>
-    👋🏼 I'm Alex, here's some posts I've written. Here's my{" "}
+    <span role="img" aria-label="hand wave emoji">
+      👋🏼
+    </span>{" "}
+    I'm Alex, here's some posts I've written. Here's my{" "}
     <a href="https://iamprettydamn.cool" className="special">
       site
     </a>{" "}

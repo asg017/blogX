@@ -1,9 +1,10 @@
 module.exports = {
+  pathPrefix: "/blogX",
   siteMetadata: {
     title: `iamprettydamn.cool`,
     author: `Alex Garcia`,
-    description: `A blog of .`,
-    siteUrl: `https://iamprettydamn.cool/blogx`,
+    description: `blog from Alex Garcia`,
+    siteUrl: `https://iamprettydamn.cool/blogX`,
     social: {
       twitter: `asg_027`,
     },
@@ -81,15 +82,15 @@ module.exports = {
         //trackingId: `ADD YOUR TRACKING ID HERE`,
       },
     },
-    `gatsby-plugin-feed`,
+    // `gatsby-plugin-feed`,TODO Add this back in after changing default query
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
-        name: `Gatsby Starter Blog`,
-        short_name: `GatsbyJS`,
+        name: `iamprettydamn.cool blog`,
+        short_name: `Alex Garcia blog`,
         start_url: `/`,
         background_color: `#ffffff`,
-        theme_color: `#663399`,
+        theme_color: `#000000`,
         display: `minimal-ui`,
         icon: `content/assets/icon.png`,
       },

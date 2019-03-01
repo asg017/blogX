@@ -6893,7 +6893,7 @@ kind-of@^6.0.0, kind-of@^6.0.2:
 
 "la-earthquake-app@https://api.observablehq.com/@asg017/la-earthquake-app@640.tgz":
   version "640.0.0"
-  resolved "https://api.observablehq.com/@asg017/la-earthquake-app@640.tgz#cd36169af8924921c3d0212d80a5fb42f4d7e2f0"
+  resolved "https://api.observablehq.com/@asg017/la-earthquake-app@640.tgz#bc67d194883e2a5e39cca28c52d1dd5f4a8b7d51"
 
 last-call-webpack-plugin@^3.0.0:
   version "3.0.0"

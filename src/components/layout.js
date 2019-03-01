@@ -1,12 +1,13 @@
 import React from "react"
 import { Link } from "gatsby"
-import {Helmet} from "react-helmet"
+import { Helmet } from "react-helmet"
 import { rhythm, scale } from "../utils/typography"
 
-const Head = () => (<Helmet>
-  <script
-            dangerouslySetInnerHTML={{
-              __html: `
+const Head = () => (
+  <Helmet>
+    <script
+      dangerouslySetInnerHTML={{
+        __html: `
               (function() {
                 window.__onThemeChange = function() {};
                 function setTheme(newTheme) {
@@ -32,9 +33,10 @@ const Head = () => (<Helmet>
                 setTheme(preferredTheme || (darkQuery.matches ? 'dark' : 'light'));
               })();
             `,
-            }}
-          />
-</Helmet>);
+      }}
+    />
+  </Helmet>
+)
 class Layout extends React.Component {
   render() {
     const { location, title, children } = this.props
@@ -93,7 +95,7 @@ class Layout extends React.Component {
           minHeight: `100vh`,
         }}
       >
-      <Head/>
+        <Head />
         <header>{header}</header>
         <main style={{ minHeight: "60vh" }}>{children}</main>
         <footer>

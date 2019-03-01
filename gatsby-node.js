@@ -28,6 +28,7 @@ exports.createPages = ({ graphql, actions }) => {
               }
               frontmatter {
                 title
+                date
               }
               fileAbsolutePath
             }

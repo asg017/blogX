@@ -18,9 +18,9 @@ class Layout extends React.Component {
     return (
       <div style={{ display: "grid", gridTemplateColumns: "auto auto" }}>
         <div>
-          <a href="/" className="special">
+          <Link to="/" className="special">
             iamprettydamn.cool blog
-          </a>
+          </Link>
         </div>
         <div>
           <Toggle
@@ -46,11 +46,6 @@ class Layout extends React.Component {
             }}
             checked={this.state.theme === "dark"}
             onChange={e => {
-              console.log(
-                `toggle changed, setting to ${
-                  e.target.checked ? "dark" : "light"
-                }`
-              )
               window.__setPreferredTheme(e.target.checked ? "dark" : "light")
             }}
           />
@@ -116,7 +111,6 @@ class Layout extends React.Component {
         }}
       >
         {this.renderTopMenu()}
-        <header>{header}</header>
         <main style={{ minHeight: "60vh" }}>{children}</main>
         <footer>
           <Footer />

@@ -13,7 +13,22 @@ const formatPostDate = d => {
   const date = new Date(d)
   return timeFormat("%A, %B %e, %Y")(date)
 }
-
+const formatOtherPostDate = d => {
+  const date = new Date(d)
+  console.log(date, d)
+  return timeFormat("%b. %e %Y")(date)
+}
+const OtherPost = ({ post }) => (
+  <React.Fragment>
+    <Link to={post.fields.slug} rel="next">
+      {post.frontmatter.title}
+    </Link>{" "}
+    -{" "}
+    <span style={{ ...scale(-1 / 5) }}>
+      {formatOtherPostDate(post.frontmatter.date)}
+    </span>
+  </React.Fragment>
+)
 class BlogPostTemplate extends React.Component {
   render() {
     const post = this.props.data.mdx
@@ -27,9 +42,7 @@ class BlogPostTemplate extends React.Component {
           description={post.frontmatter.description || post.excerpt}
         />
         <h1 style={{ marginTop: rhythm(1) }}>{post.frontmatter.title}</h1>
-        <a href="https://iamprettydamn.cool" className="special">
-          {author}
-        </a>
+        <a href="https://iamprettydamn.cool">{author}</a>
         <div
           style={{
             ...scale(-1 / 5),
@@ -61,19 +74,13 @@ class BlogPostTemplate extends React.Component {
         <ul style={{ listStyle: `none` }}>
           {previous && previous.frontmatter && previous.frontmatter.title && (
             <li>
-              Previous:{" "}
-              <Link to={previous.fields.slug} rel="prev">
-                {previous.frontmatter.title}
-              </Link>
+              Previous: <OtherPost post={previous} />
             </li>
           )}
 
           {next && next.frontmatter && next.frontmatter.title && (
             <li>
-              Next:{" "}
-              <Link to={next.fields.slug} rel="next">
-                {next.frontmatter.title}
-              </Link>
+              Next: <OtherPost post={next} />
             </li>
           )}
         </ul>

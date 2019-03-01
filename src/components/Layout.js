@@ -72,6 +72,19 @@ class Layout extends React.Component {
           minHeight: `100vh`,
         }}
       >
+        <div>
+          <a
+            href="/"
+            style={{
+              color:
+                this.state.theme === "light"
+                  ? "var(--darkBlue)"
+                  : "var(--orange)",
+            }}
+          >
+            iamprettydamn.cool blog
+          </a>
+        </div>
         <header>{header}</header>
         <Toggle
           icons={{

@@ -1,5 +1,32 @@
+body {
+  background-color: var(--bg);
+  color: var(--textNormal);
+  transition: color 0.2s ease-out, background 0.2s ease-out;
+  --blue: #00e0e0;
+  --orange: #f5ab35;
+  --darkBlue: #007acc;
+}
+
+body.dark {
+  --bg: #2b2b2b;
+  --textNormal: rgba(255, 255, 255, 0.9);
+}
+
+body.light {
+  --bg: #fff;
+  --textNormal: #222;
+}
+
+.dark a {
+  color: var(--blue);
+}
+.light a {
+  color: var(--darkBlue);
+}
+
 code {
   background-color: #f7f7f9;
+  color: #222;
   padding: 2px 5px;
   border-radius: 2px;
 }
@@ -7,12 +34,5 @@ code {
 pre {
   background-color: #f7f7f9;
   padding: 12px;
-}
-
-body {
-  color: blue;
-}
-
-body.dark {
-  color: red;
+  color: #222;
 }

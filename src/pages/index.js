@@ -40,10 +40,7 @@ class BlogIndex extends React.Component {
     console.log(posts)
     return (
       <Layout location={this.props.location} title={""}>
-        <SEO title="All posts" keywords={[`alex garcia`, `blog`, `tech`]} />
-        <div style={{ marginBottom: "30px" }}>
-          <a href="https://iamprettydamn.cool">iamprettydamn.cool</a>
-        </div>
+        <SEO title="Blog" keywords={[`alex garcia`, `blog`, `tech`]} />
         <PostsList posts={posts} />
       </Layout>
     )

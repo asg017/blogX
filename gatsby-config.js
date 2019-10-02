@@ -6,7 +6,7 @@ module.exports = {
     description: `blog from Alex Garcia`,
     siteUrl: `https://iamprettydamn.cool/blogX`,
     social: {
-      twitter: `asg_027`,
+      twitter: `agarcia_me`,
     },
   },
   plugins: [

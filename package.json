@@ -28,7 +28,7 @@
     "gatsby-remark-responsive-iframe": "^2.0.9",
     "gatsby-remark-smartypants": "^2.0.8",
     "gatsby-source-filesystem": "^2.0.22",
-    "gatsby-transformer-remark": "^2.2.6",
+    "gatsby-transformer-remark": "^5.25.1",
     "gatsby-transformer-sharp": "^2.1.14",
     "la-earthquake-app": "https://api.observablehq.com/@asg017/la-earthquake-app@640.tgz",
     "prismjs": "^1.15.0",
